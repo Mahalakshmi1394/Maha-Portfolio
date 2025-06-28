@@ -1,5 +1,6 @@
 import "./HeaderTitle.css";
 import React, { useState } from "react";
+import profileImg from "../../assets/profile-1.png";
 
 const HeaderTitle = () => {
   const [position, setPosition] = useState({ x: 100, y: 100 });
@@ -27,13 +28,13 @@ const HeaderTitle = () => {
           </div>
         </nav>
 
-        <div className="profile-image-container">
-          <img
-            src="src/assets/profile-1.png"
-            alt="Profile"
-            className="profile-image"
-          />
-        </div>
+       <div className="profile-image-container">
+      <img
+        src={profileImg}
+        alt="Profile"
+        className="profile-image"
+      />
+    </div>
 
         {/* Static SVG Titles */}
         <svg
