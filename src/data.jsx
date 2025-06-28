@@ -73,15 +73,12 @@ export const services = [
 
 export const projects = [
   {
-    title: "AI Powered School",
+    title: "RescueRoute",
     image: project1,
-    category: "UI/UX",
-    description: `Transforming education with AI, our School UI Design project revolutionizes the 
-                     learning experience. Seamlessly integrating intelligent features, personalized interfaces, 
-                     and intuitive navigation, our design empowers educators and students alike. Experience 
-                     innovation at its finest as we pave the way for a smarter, more efficient educational 
-                     journey.`,
-    demoLink: "https://google.com/",
+    category: "Web",
+    description: `Crowdsourced emergency management lets users report incidents on a live map with location, photos, and details. A request-response system connects victims with nearby help instantly. Users can donate essentials via a donation cart to ongoing relief efforts. 
+    The Partner Hub links NGOs, hospitals, and authorities for real-time collaboration.`,
+    demoLink: "https://github.com/Mahalakshmi1394/Rescue-Route",
     stacks: [
       {
         name: "XD",
@@ -90,66 +87,29 @@ export const projects = [
     ],
   },
   {
-    title: "E-Commerce Application",
+    title: "Civic Alert System",
     image: project2,
     category: "Web",
-    description: `Enhance your online shopping experience with our E-Commerce Application 
-      UI design project. Seamlessly blending aesthetics with functionality, our intuitive 
-      interface offers easy navigation, personalized recommendations, and secure 
-      transactions. Elevate your digital storefront and captivate customers with a visually 
-      stunning design tailored to your brand`,
-    demoLink: "https://google.com/",
-    stacks: [
-      {
-        name: "ReactJs",
-        logo: react,
-      },
-      {
-        name: "XD",
-        logo: xd,
-      },
-      {
-        name: "CSS",
-        logo: css,
-      },
-      {
-        name: "JavaScript",
-        logo: javascript,
-      },
-    ],
+    description: `A blockchain-based civic alert system allows citizens to securely report issues like potholes or leaks. Each alert is verified through GIV (Government-Issued Verification) for trusted user access. Users can track issue resolution in real time, ensuring transparency. Officials respond through a secure dashboard, promoting accountability and trust.
+`,
+    demoLink: "https://github.com/Mahalakshmi1394/Civic-Alert-System",
+    
   },
   {
-    title: "Robotic Engineering Web Application",
+    title: "Weather Predictor",
     image: project3,
     category: "Web",
-    description: `Unlock the future of robotics with our Robotic Engineering Web Application
-      project. Seamlessly integrating cutting-edge technology, data analytics, 
-      and collaborative tools, our platform empowers engineers to design, simulate, 
-      and optimize robotic systems. Experience innovation at its peak as we redefine the 
-      boundaries of robotic engineering.`,
-    demoLink: "https://google.com/",
-    stacks: [
-      {
-        name: "ReactJs",
-        logo: react,
-      },
-      {
-        name: "Figma",
-        logo: figma,
-      },
-      {
-        name: "Tailwind",
-        logo: tailwind,
-      },
-    ],
+    description: `My Weather Predictor provides real-time forecasts using location-based data and predictive algorithms. It displays temperature, humidity, wind speed, and future conditions in an intuitive interface. Users can plan ahead with accurate multi-day forecasts. The tool is reliable, responsive, and easy to use for daily weather updates.
+`,
+    demoLink: "https://github.com/Mahalakshmi1394/Weather-predictor",
+    
   },
   {
-    title: "Project Management application",
+    title: "QR Code Generator",
     image: project4,
     category: "Apps",
-    description: `Simplify project coordination with our intuitive Project Management application. Track tasks, collaborate in real-time, and streamline workflows effortlessly. With customizable features and robust reporting, stay organized and efficient.
-                     Elevate your project management experience and achieve success with ease.`,
-    demoLink: "https://google.com/",
+    description: `My QR Code Generator allows users to instantly create QR codes from text, URLs, or contact details. It supports multiple formats and customizations like color and size. Generated codes can be downloaded and used for sharing information easily. It's a fast, user-friendly tool for both personal and business use.`,
+    demoLink: "https://github.com/Mahalakshmi1394/QR-code-Generator",
     stacks: [
       {
         name: "React Native",
@@ -166,10 +126,10 @@ export const projects = [
     ],
   },
   {
-    title: "Mobile bank - App Design",
+    title: "SmartKart – AI-Powered E-Commerce Platform give an basic image that how it look ",
     image: project5,
     category: "UI/UX",
-    description: `Experience banking at your fingertips with our sleek Mobile Bank app design. Seamlessly manage your finances on-the-go with intuitive navigation, secure transactions, and personalized insights. Enjoy a modern interface that prioritizes convenience and accessibility, revolutionizing your banking experience.`,
+    description: `SmartKart is a next-generation e-commerce platform designed to revolutionize online shopping by harnessing the power of Artificial Intelligence (AI). The platform delivers a seamless, personalized, and efficient shopping experience for both customers and sellers.`,
     demoLink: "https://google.com/",
     stacks: [
       {
@@ -275,24 +235,16 @@ export const skills = [
 export const contactInfo = [
   {
     name: "Email",
-    value: "mradinuba@gmail.com",
-    link: "mailto:mradinuba@gmail.com",
+    value: "roshithmaha@gmail.com",
+    link: "mailto:roshithmaha@gmail.com",
     icon: emailicon,
     btnIcon: <MdOutlineEmail />,
     color: "rgb(56,115,205)",
   },
   {
-    name: "Messenger",
-    value: "Emmanuel Eze",
-    link: "http://m.me/profile?id=profile-i",
-    icon: messengericon,
-    btnIcon: <RiMessengerLine />,
-    color: "rgb(139,74,251)",
-  },
-  {
     name: "WhatsApp",
-    value: "+2348149121918",
-    link: "https://api.whatsapp.com/send?phone=+2348149121918",
+    value: "+91 9384601134",
+    link: "https://api.whatsapp.com/send?phone=+9384601134",
     icon: whatsappicon,
     btnIcon: <BsWhatsapp />,
     color: "rgb(38,234,112)",
@@ -307,50 +259,16 @@ export const socialHandles = [
   {
     name: "Github",
     icon: <AiFillGithub />,
-    link: "",
+    link: "https://github.com/Mahalakshmi1394/",
   },
   {
     name: "LinkedIn",
     icon: <AiFillLinkedin />,
-    link: "",
-  },
-  {
-    name: "Youtube",
-    icon: <AiFillYoutube />,
-    link: "https://www.youtube.com/channel/UCEtnsPZQEd0l1tbr_nDQd5Q?sub_confirmation=1",
-  },
+    link: "www.linkedin.com/in/maha-lakshmi-216492261",
+  }
 ];
 
-export const testimonials = [
-  {
-    avatar: profile3,
-    name: "Samuel Eze",
-    review: ` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-           veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea`,
-  },
-  {
-    avatar: profile4,
-    name: "Emmanuel Joseph",
-    review: ` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-           veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea`,
-  },
-  {
-    avatar: profile5,
-    name: "Gloria Chiwendu",
-    review: ` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-           veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea`,
-  },
-  {
-    avatar: profile6,
-    name: "Precious Stone",
-    review: ` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-           veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea`,
-  },
-];
+
 
 
 // Place this in your main JS file or inside a <script> tag

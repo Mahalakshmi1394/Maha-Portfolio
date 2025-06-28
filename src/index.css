@@ -60,6 +60,7 @@ a {
 
 .section__wrapper {
   padding: 60px 20px;
+  overflow: visible;
 }
 
 .section__header {
@@ -131,20 +132,19 @@ img {
 /* about */
 
 .about__card {
-  display: flex;
-  overflow: visible;
+display: flex;
+  overflow: visible; /* Allows content to extend beyond the container */
   align-items: center;
   justify-content: space-between;
-  background: rgba(33,33,33,0.8);
+  background: rgba(33, 33, 33, 0.8);
   border: 8px solid var(--color-ui-1);
   border-radius: 1.2rem;
   padding: 70px;
   backdrop-filter: blur(8px);
   box-shadow: var(--border-shadow);
-  position: relative;
-  overflow: hidden;
+  position: relative; /* Enables positioning for child elements */
+  z-index: 3; /* Ensures the card stays above other elements if needed */
 }
-
 
 .skills__container {
   width: 200px;
@@ -257,386 +257,57 @@ img {
 }
 
 
+/* Base button styles matching your existing button */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem; /* px-6 py-3 ≈ 1.5rem 0.75rem */
+  font-size: 1rem;
+  font-weight: 500; /* font-medium */
+  color: white;
+  background-color: #646cff; /* bg-primary */
+  border: none;
+  border-radius: 0.75rem; /* rounded-xl */
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect matching your existing button */
+.btn:hover {
+  background-color: #030ff0; /* primary-hover */
+  transform: translateY(-0.125rem); /* hover:-translate-y-0.5 */
+}
+
+/* Liquid fill effect */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#535bf2 0 0) no-repeat calc(200% - var(--p, 0%)) 100% / 200% var(--p, 0.08em);
+  transition: 0.2s var(--t, 0.2s), background-position 0.2s calc(0.2s - var(--t, 0s));
+  z-index: -1;
+}
+
+.btn:hover::before {
+  --p: 100%;
+  --t: 0.2s;
+}
+
+/* Icon styling */
+.btn svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 /* skills */
 
-/* ====================
-   Base & Dark Theme
-   ==================== */
-/* --- General Body & Dark Theme --- */
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: var(--color-ui-1); /* Dark background from screenshot */
-    color: #e0e0e0; /* Light grey text */
-}
 
-/* --- Skills Section Base --- */
-.skills-section {
-    padding: 70px 25px; /* Adjusted padding */
-    background-color: rgba(33,33,33,0.8); /* Darker section background */
-    text-align: center;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Stronger, deeper shadow */
-    margin: 50px auto;
-    max-width: 1400px; /* Slightly wider */
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.skills-title {
-    font-size: 3em;
-    margin-bottom: 60px;
-    color: #f0f0f0;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 18px;
-    text-shadow: 0 0 10px rgba(0, 123, 255, 0.4); /* Subtle glow for title */
-}
-
-.skills-title::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background-color: #007bff; /* Vibrant blue accent */
-    border-radius: 2px;
-}
-
-/* --- Main Layout Grid for Categorized Skills --- */
-.skills-layout-container {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* Left column slightly wider than right */
-    gap: 40px; /* Increased space between main columns */
-    align-items: start;
-    padding: 0 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.skills-left-area {
-    display: flex;
-    flex-direction: column;
-    gap: 40px; /* Space between Programming and Tools groups */
-}
-
-/* --- Category Group Styling --- */
-.skills-category-group {
-    background-color: #2c2c2c; /* Dark background for category cards */
-    padding: 30px; /* Increased padding for more spacious look */
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    border: 1px solid #3a3a3a;
-    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; /* Smoother transitions */
-    overflow: hidden; /* For potential internal effects */
-    position: relative; /* For pseudo-elements */
-}
-
-.skills-category-group::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(0, 123, 255, 0.05), rgba(0, 123, 255, 0)); /* Subtle blue gradient overlay */
-    opacity: 0;
-    transition: opacity 0.4s ease-out;
-    pointer-events: none; /* Allows clicks to pass through */
-}
-
-.skills-category-group:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-}
-
-.skills-category-group:hover::before {
-    opacity: 1; /* Fade in gradient on hover */
-}
-
-.category-heading {
-    font-size: 2em; /* Slightly larger heading */
-    color: #007bff;
-    margin-bottom: 30px;
-    font-weight: 600;
-    position: relative;
-    padding-bottom: 10px;
-    text-shadow: 0 0 5px rgba(0, 123, 255, 0.3); /* Subtle glow */
-}
-
-.category-heading::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-    width: 60px;
-    height: 3px;
-    background-color: #007bff;
-    border-radius: 1.5px;
-}
-
-/* --- Grid Container for individual square skill cards --- */
-.skills-grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); /* Adjusted minmax for square size */
-    gap: 20px; /* Space between square cards */
-    justify-content: center;
-    align-items: stretch;
-    padding: 10px 0;
-}
-
-/* --- Individual Skill Card Styling (Square) --- */
-.skill-card {
-    background-color: var(--color-ui-1); /* Dark background for cards */
-    padding: 20px;
-    border-radius: 8px; /* Slightly rounded corners */
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 120px; /* Fixed height for squares */
-    border: 1px solid #4a4a4a; /* Subtle border */
-
-    /* For "Fading" effect - initial state */
-    filter: grayscale(80%) brightness(80%); /* Desaturate and darken */
-    opacity: 0.7; /* Slightly faded */
-    transform: perspective(1000px) rotateY(0deg) rotateX(0deg); /* Initial 3D state */
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth cubic-bezier transition */
-    position: relative;
-    overflow: hidden; /* For pseudo-elements */
-}
-
-/* Creative hover animations for square cards */
-.skill-card:hover {
-    /* "Bold" effect - hover state */
-    filter: grayscale(0%) brightness(100%); /* Full color, full brightness */
-    opacity: 1; /* Fully opaque */
-    background-color: #007bff; /* Accent color background */
-    border-color: #00aaff; /* Brighter border */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 123, 255, 0.8); /* Stronger shadow + glow */
-
-    /* 3D Tilt/Rotate animation */
-    transform: perspective(1000px) rotateY(8deg) rotateX(5deg) translateY(-8px); /* Tilt and lift */
-}
-
-/* Inner glow/highlight effect for skill card on hover using pseudo-element */
-.skill-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(33,33,33,0.8), transparent 70%);
-    opacity: 0;
-    transform: scale(0);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.skill-card:hover::before {
-    opacity: 1;
-    transform: scale(1);
-}
-
-/* Icon Styling */
-.skill-icon {
-    font-size: 3em; /* Slightly larger for impact */
-    margin-bottom: 8px;
-    color: #e0e0e0; /* Faded white initially */
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* Subtle glow */
-    transition: color 0.5s ease, text-shadow 0.5s ease;
-}
-
-.skill-card:hover .skill-icon {
-    color: #fff; /* Bright white on hover */
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5); /* Stronger glow */
-}
-
-.skill-name {
-    font-size: 1em; /* Slightly larger text */
-    font-weight: 500;
-    color: #b0b0b0; /* Faded grey initially */
-    transition: color 0.5s ease, font-weight 0.5s ease;
-}
-
-.skill-card:hover .skill-name {
-    color: #fff; /* Bright white on hover */
-    font-weight: 600; /* Bolder on hover */
-}
-
-
-/* --- Responsive Adjustments --- */
-
-@media (max-width: 1024px) {
-    .skills-layout-container {
-        grid-template-columns: 1fr; /* Stack columns vertically */
-        padding: 0 15px;
-        gap: 30px;
-    }
-    .skills-section {
-        padding: 50px 15px;
-        max-width: 95%;
-    }
-    .skills-title {
-        font-size: 2.5em;
-        margin-bottom: 50px;
-    }
-    .category-heading {
-        font-size: 1.8em;
-    }
-    .skills-grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 15px;
-    }
-    .skill-card {
-        min-height: 110px;
-        padding: 18px;
-    }
-    .skill-icon {
-        font-size: 2.5em;
-    }
-    .skill-name {
-        font-size: 0.9em;
-    }
-}
-
-@media (max-width: 768px) {
-    .skills-section {
-        padding: 30px 10px;
-        margin: 20px auto;
-    }
-    .skills-title {
-        font-size: 2.2em;
-        margin-bottom: 40px;
-    }
-    .category-heading {
-        font-size: 1.5em;
-    }
-    .skills-layout-container {
-        gap: 25px;
-        padding: 0 10px;
-    }
-    .skills-grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-        gap: 12px;
-    }
-    .skill-card {
-        min-height: 100px;
-        padding: 15px;
-    }
-    .skill-icon {
-        font-size: 2.2em;
-    }
-    .skill-name {
-        font-size: 0.85em;
-    }
-}
-
-@media (max-width: 480px) {
-    .skills-title {
-        font-size: 1.8em;
-    }
-    .skills-layout-container {
-        padding: 0 5px;
-    }
-    .skills-grid-container {
-        grid-template-columns: 1fr 1fr 1fr; /* 3 columns on very small screens */
-        gap: 10px;
-    }
-    .skill-card {
-        min-height: 90px;
-        padding: 10px;
-    }
-    .skill-icon {
-        font-size: 2em;
-    }
-    .skill-name {
-        font-size: 0.8em;
-    }
-}
-
-/* ------------------------------------------------
-   1) Pulse‐Glow on Category Headings (infinite) 
-   ------------------------------------------------ */
-@keyframes pulse-glow {
-  0%, 100% {
-    text-shadow: 0 0 8px rgba(0,123,255,0.5),
-                 0 0 16px rgba(0,123,255,0.3);
-  }
-  50% {
-    text-shadow: 0 0 12px rgba(0,123,255,0.7),
-                 0 0 24px rgba(0,123,255,0.4);
-  }
-}
-
-.category-heading:hover {
-  animation: pulse-glow 2.5s infinite ease-in-out;
-}
-
-/* -----------------------------------------------
-   2) Slight Tilt + Shadow Shift on Skill‐Cards 
-   ----------------------------------------------- */
-.skill-card:hover {
-  /* keep existing transform... */
-  transform: perspective(1000px) rotateY(10deg) rotateX(7deg) translateY(-10px);
-
-  /* deepen & shift the shadow slightly down+right */
-  box-shadow:
-    0 12px 30px rgba(0,0,0,0.7),
-    5px 10px 50px rgba(0,123,255,0.3);
-}
-
-/* ------------------------------------------------
-   3) Soft, Slow Gradient Animation on Section BG 
-   ------------------------------------------------ */
-@keyframes bg-flow {
-  0%   { background-color: #242424; }
-  50%  { background-color: #292929; }
-  100% { background-color: #242424; }
-}
-
-.skills-section {
-  /* add before or after your other properties */
-  animation: bg-flow 15s infinite ease-in-out;
-}
-
-/* ------------------------------------------
-   4) Faster “Entrance” Easing for Items 
-   ------------------------------------------ */
-/* Override your existing .in-view transitions */
-.skills-section.in-view {
-  transition: opacity 0.5s cubic-bezier(0.25,0.46,0.45,0.94),
-              transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
-}
-
-/* Staggered cards also use the same easing */
-.skill-diamond-wrapper,
-.skill-card {
-  transition-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
-}
-
-/* ---------------------------------------------
-   5) Micro-Interaction on Title Underline Hover 
-   --------------------------------------------- */
-.skills-title {
-  /* ensure this is present */
-  position: relative;
-  cursor: pointer;
-}
-.skills-title::after {
-  transition: width 0.4s ease-in-out;
-}
-.skills-title:hover::after {
-  width: 140px; /* expand the underline on hover */
-}
 
 /* project */
 
@@ -657,7 +328,7 @@ body {
 .proj-card {
   background: var(--color-ui-1);
   border-radius: var(--border-radius-3);
-  overflow: hidden;
+  overflow: visible;
   transform: translateY(30px);
   opacity: 0;
   transition: transform 0.6s ease, opacity 0.6s ease;
@@ -676,10 +347,18 @@ body {
 /* Image wrapper */
 .proj-image-wrapper {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  width: 100%;
+  height: 400px; /* Adjust height as needed for uniform size */
+  background-color: #000; /* fallback in case image doesn't load */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .proj-image {
   width: 100%;
+  height: 100%;
+  object-fit: cover; /* ensures the image fills the area without distortion */
   display: block;
   transition: transform 0.5s ease;
 }
@@ -818,6 +497,8 @@ a { color: var(--color-text); text-decoration: none; }
 
 .section__wrapper {
   padding: 60px 20px;
+  position: relative;
+  overflow: visible;
 }
 
 /* ========== SCROLL REVEAL ANIMATION FOR ABOUT, SKILLS, PROJECTS ========== */
@@ -894,3 +575,303 @@ a { color: var(--color-text); text-decoration: none; }
 
 
 
+/* skills */
+
+/* ====================
+   Base & Dark Theme
+   ==================== */
+/* --- General Body & Dark Theme --- */
+/* ====================
+   Ultimate Neon Skills Section
+   ==================== */
+:root {
+  --neon-primary: var(--color-primary);
+  --dark-bg: rgba(33,33,33,0.8);;
+  --card-bg: var(--color-ui-1);
+  --text-primary: #f0f0ff;
+  --text-secondary:  #7b9ce3;
+  --border-radius: 12px;
+}
+
+.skills-section {
+  font-family: 'Rajdhani', 'Arial', sans-serif;
+  padding: 4rem 2rem;
+  background: rgba(33,33,33,0.8);
+  border: 2px solid rgba(137, 43, 226, 0);
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.15);
+  margin: 3rem auto;
+  max-width: 1200px;
+  border-radius: var(--border-radius);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Neon Border */
+.skills-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius);
+  background: linear-gradient(
+    45deg,
+    var(--neon-primary),
+    var(--neon-secondary),
+    var(--neon-accent),
+    var(--neon-primary)
+  );
+  background-size: 300% 300%;
+  animation: neonFlow 12s ease infinite;
+  z-index: -2;
+  opacity: 0.3;
+  filter: blur(10px);
+}
+
+/* Inner Glow Effect */
+.skills-section::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(var(--border-radius) - 1px);
+  background: var(--dark-bg);
+  z-index: -1;
+}
+
+.skills-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 3rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 0 8px rgba(46, 36, 152, 0.4);
+}
+
+.skills-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--neon-primary), 
+    var(--neon-secondary),
+    transparent);
+  border-radius: 3px;
+  animation: neonFlow 8s linear infinite;
+}
+
+/* Compact Grid Layout */
+.skills-layout-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.skills-category-group {
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  border-radius: var(--border-radius);
+  padding: 2rem ;
+  border: 2px solid var(--color-ui-1);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-category-group:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(13, 79, 178, 0.2);
+  border-color: var(--neon-primary);
+}
+
+/* Neon Corner Brackets */
+.skills-category-group::before,
+.skills-category-group::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--neon-primary);
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+
+.skills-category-group::before {
+  top: 10px;
+  left: 10px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.skills-category-group::after {
+  bottom: 10px;
+  right: 10px;
+  border-left: none;
+  border-top: none;
+}
+
+.skills-category-group:hover::before,
+.skills-category-group:hover::after {
+  opacity: 1;
+}
+
+.category-heading {
+  font-size: 1.25rem;
+  color: var(--neon-primary);
+  margin-bottom: 1.25rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* Skill Cards Grid */
+.skills-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 1rem;
+  place-items: center;
+}
+
+.skill-card {
+  background: rgba(33,33,33,0.8);
+  border-radius: 8px;
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 2px solid var(--color-ui-1);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 242, 255, 0.1) 0%,
+    transparent 50%,
+    rgba(255, 0, 242, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-card:hover {
+  background: rgba(40, 40, 60, 0.8);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 242, 255, 0.3);
+  border-color: var(--neon-primary);
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover .skill-icon {
+  color: var(--neon-primary);
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.6));
+}
+
+.skill-name {
+  font-size: 0.75rem;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.skill-card:hover .skill-name {
+  color: var(--text-primary);
+}
+
+/* Animations */
+@keyframes neonFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .skills-layout-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .skills-grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-section {
+    padding: 2rem 1rem;
+    margin: 1.5rem auto;
+  }
+  
+  .skills-grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .skill-card {
+    padding: 0.75rem 0.25rem;
+  }
+  
+  .skill-icon {
+    font-size: 1.75rem;
+  }
+}
+
+
+
+/* Add this to your existing CSS */
+.skills-left-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* This creates space between Programming and Tools sections */
+}
+
+/* If you want even more space between categories */
+.skills-category-group {
+  margin-bottom: 1rem; /* Adjust this value as needed */
+}
+
+/* For even finer control, target specific groups */
+.programming-group {
+  margin-bottom: 1rem; /* Extra space after Programming */
+}
+
+.tools-group {
+  margin-top: -0.7rem; /* Extra space before Tools */
+}
+
+.circle {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background-color: #007bff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 999999;
+}

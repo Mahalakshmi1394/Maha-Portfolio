@@ -231,3 +231,86 @@ body {
     align-items: center;
   }
 }
+
+
+/* Outer black background */
+.navbar-container {
+  background-color: #0f0f0f;
+  padding-top: 0.3rem;     /* reduced top padding */
+  padding-bottom: 0.3rem;  /* reduced bottom padding */
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+
+/* Inner grey pill container */
+.navbar-inner {
+  background: linear-gradient(to right, #1c1c1c, #1a1a1a);
+  padding: 0.7rem 2rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1280px;
+}
+
+/* Logo */
+.navbar-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+/* Navigation links */
+.nav-links {
+  display: flex;
+  gap: 2.2rem;
+}
+
+.nav-links a {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #3b82f6;
+}
+
+/* Optional: style inactive/disabled link */
+.nav-links a.inactive {
+  color: #5a5a5a;
+  cursor: not-allowed;
+}
+
+/* Hire Me button */
+.hire-btn {
+  display: flex;
+  align-items: center;
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 999px;
+  text-decoration: none;
+  gap: 0.4rem;
+  transition: background-color 0.3s ease;
+}
+
+.hire-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.external-icon {
+  font-size: 0.85rem;
+}

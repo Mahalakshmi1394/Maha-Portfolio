@@ -3,7 +3,7 @@ import {
   FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaPython, FaJava,
   FaGitAlt, FaFigma, FaAws, FaDocker, FaDatabase, FaServer, FaCodeBranch
 } from 'react-icons/fa';
-import { SiMongodb, SiExpress, SiNextdotjs, SiTypescript, SiPostgresql, SiGooglecloud, SiWebpack, SiGithub, SiSpring, SiKubernetes } from 'react-icons/si';
+import { SiMongodb, SiExpress, SiNextdotjs, SiTypescript, SiMysql, SiGooglecloud, SiWebpack, SiGithub, SiSpring, SiKubernetes } from 'react-icons/si';
 
 const skillsData = {
   fullStack: [
@@ -14,7 +14,7 @@ const skillsData = {
     { name: 'Node.js', icon: <FaNodeJs /> },
     { name: 'Express.js', icon: <SiExpress /> },
     { name: 'MongoDB', icon: <SiMongodb /> },
-    { name: 'PostgreSQL', icon: <SiPostgresql /> },
+    { name: 'MySQL', icon: <SiMysql /> },
     { name: 'REST APIs', icon: <FaServer /> },
   ],
   programming: [
